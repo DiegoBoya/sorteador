@@ -18,6 +18,19 @@ public class Carta {
 		
 	}
 	
+	//constructor por defecto con ALCOHOL == false
+	public Carta(String descripcion) {
+		this.description = descripcion;
+		this.isAlcohol = false;
+		System.out.println( "succes!");
+	}
+	
+	public Carta(String descripcion, boolean alc) {
+		this.description = descripcion;
+		this.isAlcohol = alc;
+		System.out.println( "succes!");
+	}
+	
 	public Carta(String name, String descripcion, boolean alc) {
 		this.name = name;
 		this.description = descripcion;
@@ -52,6 +65,13 @@ public class Carta {
 	public void setAlcohol(boolean isAlcohol) {
 		this.isAlcohol = isAlcohol;
 	}
+
+	@Override
+	public String toString() {
+		return "Carta [id=" + id + ", description=" + description + ", isAlcohol=" + isAlcohol + "]";
+	}
+	
+	
 	
 	
 }
