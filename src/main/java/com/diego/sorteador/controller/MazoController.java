@@ -12,7 +12,7 @@ import com.diego.sorteador.service.MazoService;
 @RestController("/mazo")
 public class MazoController {
 
-	@Autowired
+	
 	MazoService mazoService;
 
 	@GetMapping("/sacarCarta")

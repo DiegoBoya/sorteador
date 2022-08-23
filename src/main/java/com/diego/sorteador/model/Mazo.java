@@ -12,10 +12,11 @@ public class Mazo {
 	
 	public Mazo() {
 		listaCartasActivas = new ArrayList<Carta>();
-		listaCartasActivas = new ArrayList<Carta>();
+		listaCartasUsadas = new ArrayList<Carta>();
 	}
 	
 	public Mazo(Carta...cartasNuevas ) {
+		this();
 		int i = 0;
 		for(Carta c: cartasNuevas) {
 			listaCartasActivas.add(c);

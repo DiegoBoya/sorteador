@@ -24,7 +24,7 @@ public class MazoService {
 	 */
 	public String sacarCarta(String name) {
 		
-		logger.info("inicia proceso para sacar una carta del mazo para el invitado " + name);
+		//logger.info("inicia proceso para sacar una carta del mazo para el invitado " + name);
 		
 		Carta carta = null;
 		
@@ -56,7 +56,7 @@ public class MazoService {
 		//devuelve un numero entre 0 y (size()-1)
 		int indice = (int) Math.floor(Math.random()*cant);
 		
-		System.out.println(" se retira la carta numero " + indice + " \n . Ahora quedan en el mazo " + (cant - 1) + "cartas!!" );
+		System.out.println(" se retira la carta numero " + indice + ". \n Ahora quedan en el mazo " + (cant) + "cartas!!" );
 		return indice;
 	}
 

@@ -35,34 +35,34 @@ public class SorteadorApplication {
 		mazoService.listarCartasActivas();
 		System.out.println("sacando cartas: :D");
 		
-		mazoService.getCarta();
+		mazoService.sacarCarta("Diego");
 		mazoService.listarCartasUsadas();
 		
-		mazoService.getCarta();
+		mazoService.sacarCarta("Ninis");
 		mazoService.listarCartasUsadas();
 		
-		mazoService.getCarta();
+		mazoService.sacarCarta("gonza");
 		mazoService.listarCartasUsadas();
 		
-		mazoService.getCarta();
+		mazoService.sacarCarta("maty");
 		mazoService.listarCartasUsadas();
 		
-		mazoService.getCarta();
+		mazoService.sacarCarta("bel");
 		mazoService.listarCartasUsadas();
 		
-		mazoService.getCarta();
+		mazoService.sacarCarta("nacho");
 		mazoService.listarCartasUsadas();
 		
-		mazoService.getCarta();
+		mazoService.sacarCarta("pepe");
 		mazoService.listarCartasUsadas();
 		
-		mazoService.getCarta();
+		mazoService.sacarCarta("popo");
 		mazoService.listarCartasUsadas();
 		
-		mazoService.getCarta();
+		mazoService.sacarCarta("pablo");
 		mazoService.listarCartasUsadas();
 		
-		mazoService.getCarta();
+		mazoService.sacarCarta("pacita");
 		mazoService.listarCartasUsadas();
 		
 		/*
