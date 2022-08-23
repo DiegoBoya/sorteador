@@ -1,19 +1,21 @@
 package com.diego.sorteador.service;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.annotations.common.util.impl.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.diego.sorteador.model.Carta;
 import com.diego.sorteador.model.Mazo;
 
 public class MazoService {
+
+	private static final Logger logger = LogManager.getLogger(MazoService.class);
 	
 	@Autowired
 	private Mazo mazo;
 	
-	@Autowired
-	Log logger;
+
+
 	
 	public MazoService(Mazo mazo) {
 		this.mazo = mazo;
