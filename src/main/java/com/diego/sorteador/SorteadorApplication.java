@@ -1,11 +1,13 @@
 package com.diego.sorteador;
 
+import org.hibernate.annotations.common.util.impl.Log;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 import com.diego.sorteador.model.Carta;
 import com.diego.sorteador.model.Mazo;
+import com.diego.sorteador.service.MazoService;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class SorteadorApplication {
@@ -24,17 +26,55 @@ public class SorteadorApplication {
 		Carta c8 = new Carta("ruidos extraños en la habitacion", false);
 		Carta c9 = new Carta("Denu: tape el inodoro", false);
 		
-		Mazo mazo = new Mazo(c1, c2, c3, c4, c5, c6, c7, c8, c9);
+		Mazo mazo = new Mazo();
 		
-		mazo.listarCartasActivas();
+		Log logger;
+		
+		MazoService mazoService = new MazoService(mazo);
+		mazoService.agregarCartasAlMazo(c1, c2, c3, c4, c5, c6, c7, c8, c9);
+		
+		mazoService.listarCartasActivas();
 		System.out.println("sacando cartas: :D");
-		System.out.println("1" + mazo.posicionRandom());
-		System.out.println("2" + mazo.posicionRandom());
-		System.out.println("3" + mazo.posicionRandom());
-		System.out.println("4" + mazo.posicionRandom());
 		
+		mazoService.sacarCarta("Diego");
+		mazoService.listarCartasUsadas();
+		
+		mazoService.sacarCarta("Ninis");
+		mazoService.listarCartasUsadas();
+		
+		mazoService.sacarCarta("gonza");
+		mazoService.listarCartasUsadas();
+		
+		mazoService.sacarCarta("maty");
+		mazoService.listarCartasUsadas();
+		
+		mazoService.sacarCarta("bel");
+		mazoService.listarCartasUsadas();
+		
+		mazoService.sacarCarta("nacho");
+		mazoService.listarCartasUsadas();
+		
+		mazoService.sacarCarta("pepe");
+		mazoService.listarCartasUsadas();
+		
+		mazoService.sacarCarta("popo");
+		mazoService.listarCartasUsadas();
+		
+		mazoService.sacarCarta("pablo");
+		mazoService.listarCartasUsadas();
+		
+		mazoService.sacarCarta("pacita");
+		mazoService.listarCartasUsadas();
+		
+		/*
+		 * 
+		 * System.out.println("1" + mazoService.posicionRandom());
+		 * System.out.println("2" + mazoService.posicionRandom());
+		 * System.out.println("3" + mazoService.posicionRandom());
+		 * System.out.println("4" + mazoService.posicionRandom());
+		 */
 		System.out.println("mezclando cartas");
-		mazo.mezclartodasLasCartas();
+		mazoService.mezclartodasLasCartas();
 	
 		//mazo.listarCartasActivas();
 	}

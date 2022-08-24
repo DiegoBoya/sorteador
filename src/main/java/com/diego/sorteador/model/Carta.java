@@ -1,17 +1,30 @@
 
 package com.diego.sorteador.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
 import org.springframework.data.annotation.Id;
 
+@Entity
+@Table(name = "Carta")
 public class Carta {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="carta_id")
 	private Integer id;
 	
+	@Column(name = "name")
 	private String name;
 	
+	@Column(name = "description")
 	private String description;
 	
+	@Column(name = "isAlcohol")
 	private boolean isAlcohol;
 	
 	public Carta() {
@@ -21,14 +34,13 @@ public class Carta {
 	//constructor por defecto con ALCOHOL == false
 	public Carta(String descripcion) {
 		this.description = descripcion;
+		this.name = "Sin nombre";
 		this.isAlcohol = false;
-		System.out.println( "succes!");
 	}
 	
 	public Carta(String descripcion, boolean alc) {
 		this.description = descripcion;
 		this.isAlcohol = alc;
-		System.out.println( "succes!");
 	}
 	
 	public Carta(String name, String descripcion, boolean alc) {
