@@ -15,10 +15,16 @@ public class MazoService {
 	private Mazo mazo;
 	
 
-
-	
 	public MazoService(Mazo mazo) {
 		this.mazo = mazo;
+	}
+	
+	public void agregarCartasAlMazo(Carta... cartasNuevas) {
+		int i = 0;
+		for(Carta c: cartasNuevas) {			
+		mazo.getListaCartasActivas().add(c);
+		}
+		logger.info("Se agregaron " + i + " cartas nuevas");
 	}
 
 	/*
@@ -42,12 +48,17 @@ public class MazoService {
 	
 	
 	public Carta getCarta() {
-		
+		Carta carta = null;
 		int indice = posicionRandom();
 		
-		Carta carta = mazo.getListaCartasActivas().remove(indice);
-		mazo.getListaCartasUsadas().add(carta);
-		System.out.println(" se retira la carta: " + carta.toString());
+		if (indice < 0) {
+			logger.info("no hay cartas en el mazo, se tienen que crear las cartas");
+			return null;
+		} else {
+			carta = mazo.getListaCartasActivas().remove(indice);
+			mazo.getListaCartasUsadas().add(carta);
+			logger.info(" se retira la carta: " + carta.toString());
+		}
 		return carta;
 	}
 	
@@ -58,13 +69,13 @@ public class MazoService {
 		//devuelve un numero entre 0 y (size()-1)
 		int indice = (int) Math.floor(Math.random()*cant);
 		
-		System.out.println(" se retira la carta numero " + indice + ". \n Ahora quedan en el mazo " + (cant) + "cartas!!" );
+		logger.info("Se retira la carta numero " + indice + ".\nAhora quedan en el mazo " + (cant) + " cartas!!" );
 		return indice;
 	}
 
 	public void listarCartasActivas() {
 			System.out.println("---------------------------------------------------------------------");
-			System.out.println(" listando cartas activas:");
+			logger.info(" listando cartas activas:");
 			for (Carta c: mazo.getListaCartasActivas()) {
 			System.out.println(c.toString());
 		}
@@ -73,7 +84,7 @@ public class MazoService {
 	
 	public void listarCartasUsadas() {
 		System.out.println("---------------------------------------------------------------------");
-		System.out.println(" listando cartas usadas:");
+		logger.info(" listando cartas usadas:");
 		for (Carta c: mazo.getListaCartasUsadas()) {
 		System.out.println(c.toString());
 	}
@@ -81,10 +92,10 @@ public class MazoService {
 }
 	
 	public void mezclartodasLasCartas() {
-		System.out.println(" Ups! nos quedamos sin cartas!! vamos a mezclar!");
+		logger.info(" Ups! nos quedamos sin cartas!! vamos a mezclar!");
 		mazo.getListaCartasActivas().addAll(mazo.getListaCartasUsadas());
-		System.out.println("mezzclando...");
-		System.out.println("Mazo unificado con exito...");
+		logger.info("mezzclando...");
+		logger.info("Mazo unificado con exito...");
 		
 	}
 }

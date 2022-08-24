@@ -26,11 +26,12 @@ public class SorteadorApplication {
 		Carta c8 = new Carta("ruidos extraños en la habitacion", false);
 		Carta c9 = new Carta("Denu: tape el inodoro", false);
 		
-		Mazo mazo = new Mazo(c1, c2, c3, c4, c5, c6, c7, c8, c9);
+		Mazo mazo = new Mazo();
 		
 		Log logger;
 		
 		MazoService mazoService = new MazoService(mazo);
+		mazoService.agregarCartasAlMazo(c1, c2, c3, c4, c5, c6, c7, c8, c9);
 		
 		mazoService.listarCartasActivas();
 		System.out.println("sacando cartas: :D");

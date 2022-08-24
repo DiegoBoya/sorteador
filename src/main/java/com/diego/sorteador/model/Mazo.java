@@ -15,15 +15,7 @@ public class Mazo {
 		listaCartasUsadas = new ArrayList<Carta>();
 	}
 	
-	public Mazo(Carta...cartasNuevas ) {
-		this();
-		int i = 0;
-		for(Carta c: cartasNuevas) {
-			listaCartasActivas.add(c);
-		i++;
-		}
-		System.out.println("Se agregaron " + i + " cartas nuevas");
-	}
+
 
 	public List<Carta> getListaCartasActivas() {
 		return listaCartasActivas;
