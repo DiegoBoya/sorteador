@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.diego.sorteador.model.Carta;
 import com.diego.sorteador.model.Mazo;
+import com.diego.sorteador.repository.CartaRepository;
 
 public class MazoService {
 
@@ -14,17 +15,27 @@ public class MazoService {
 	@Autowired
 	private Mazo mazo;
 	
+	@Autowired
+	private CartaRepository cartaRepository;
+	
 
 	public MazoService(Mazo mazo) {
 		this.mazo = mazo;
 	}
 	
-	public void agregarCartasAlMazo(Carta... cartasNuevas) {
+	public String agregarCartasAlMazo(Carta... cartasNuevas) {
 		int i = 0;
-		for(Carta c: cartasNuevas) {			
-		mazo.getListaCartasActivas().add(c);
+		String resultado = null;
+		try {
+			logger.info("Se intena agregar " + cartasNuevas.length + "cartas nuevas");
+			for (Carta c : cartasNuevas) {
+				mazo.getListaCartasActivas().add(c);
+			}
+			resultado = "Se agregaron " + i + " cartas nuevas";
+		} catch (Exception e) {
+			resultado = "Error al agregar las cartas";
 		}
-		logger.info("Se agregaron " + i + " cartas nuevas");
+		return resultado;
 	}
 
 	/*

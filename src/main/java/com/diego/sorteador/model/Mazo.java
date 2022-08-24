@@ -3,9 +3,14 @@ package com.diego.sorteador.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.OneToMany;
+
 
 
 public class Mazo {
+	
+	//@OneToMany
+	//private Carta carta;
 	
 	private List<Carta> listaCartasActivas;
 	private List<Carta> listaCartasUsadas;

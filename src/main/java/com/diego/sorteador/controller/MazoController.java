@@ -7,9 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.diego.sorteador.model.Carta;
 import com.diego.sorteador.model.Mazo;
 import com.diego.sorteador.service.MazoService;
 
@@ -19,6 +22,7 @@ public class MazoController {
 
 	private static final Logger logger = LogManager.getLogger(MazoController.class);
 	
+	//wacala
 	MazoService mazoService = new MazoService(new Mazo());
 
 	@GetMapping("/sacarCarta/{name}")
@@ -28,12 +32,13 @@ public class MazoController {
 
 		try {
 
+			logger.info("Se saca una carta del mazo para " + name);
 			String resp = mazoService.sacarCarta(name);
 			
 			if (resp.isEmpty()) {
 				response = new ResponseEntity<String>("error al obtener la carta", HttpStatus.NOT_FOUND);
 			} else {
-				response = new ResponseEntity<String>("poner el resultado de la carta que salio", HttpStatus.OK);
+				response = new ResponseEntity<String>(resp, HttpStatus.OK);
 			}
 		} catch (Exception e) {
 			response = new ResponseEntity<String>(e.getCause().toString() , HttpStatus.INTERNAL_SERVER_ERROR);
@@ -43,4 +48,28 @@ public class MazoController {
 		return response;
 	}
 
+	
+	@PostMapping("/agregarCartas")
+	public ResponseEntity<String> agregarCarta(@RequestBody Carta... cartasNuevas){
+		ResponseEntity<String> response = null;
+		
+		try {
+
+			logger.info("Inicia el procedimiento apra agregar cartas al Mazo");
+			String resp = mazoService.agregarCartasAlMazo(cartasNuevas);
+			
+			if (resp.toLowerCase().contains("error")) {
+				response = new ResponseEntity<String>(resp, HttpStatus.NOT_FOUND);
+			} else {
+				response = new ResponseEntity<String>(resp, HttpStatus.OK);
+			}
+		} catch (Exception e) {
+			response = new ResponseEntity<String>(e.getCause().toString() , HttpStatus.INTERNAL_SERVER_ERROR);
+			logger.info(e);
+		}
+
+		return response;
+	}
+	
+	
 }
