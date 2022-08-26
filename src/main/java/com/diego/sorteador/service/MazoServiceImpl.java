@@ -3,11 +3,13 @@ package com.diego.sorteador.service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.diego.sorteador.model.Carta;
 import com.diego.sorteador.model.Mazo;
 import com.diego.sorteador.repository.CartaRepository;
 
+@Service
 public class MazoServiceImpl implements MazoService{
 
 	private static final Logger logger = LogManager.getLogger(MazoServiceImpl.class);
@@ -16,10 +18,11 @@ public class MazoServiceImpl implements MazoService{
 	private Mazo mazo;
 	
 	//@Autowired
-	private CartaRepository cartaRepository;
+	//private CartaRepository cartaRepository;
 	
 
 	public MazoServiceImpl(Mazo mazo) {
+		System.out.println("se crea mazoService");
 		this.mazo = mazo;
 	}
 	

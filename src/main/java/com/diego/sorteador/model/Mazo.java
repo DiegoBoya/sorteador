@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class Mazo implements ComponentDependency{
+public class Mazo {
 	
 	//@OneToMany
 	//private Carta carta;
@@ -18,6 +18,7 @@ public class Mazo implements ComponentDependency{
 	private List<Carta> listaCartasUsadas;
 	
 	public Mazo() {
+		System.out.println("se crea el Mazo");
 		listaCartasActivas = new ArrayList<Carta>();
 		listaCartasUsadas = new ArrayList<Carta>();
 	}
@@ -41,10 +42,9 @@ public class Mazo implements ComponentDependency{
 	}
 
 
-	@Override
-	public void saludar() {
-		System.out.println(" soy el Mazo");
-	}
+	/*
+	 * @Override public void saludar() { System.out.println(" soy el Mazo"); }
+	 */
 	
 	
 	

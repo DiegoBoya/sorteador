@@ -30,7 +30,7 @@ public class Carta implements ComponentDependency{
 	private boolean isAlcohol;
 	
 	public Carta() {
-		
+		System.out.println("se crea la carta");
 	}
 	
 	//constructor por defecto con ALCOHOL == false
