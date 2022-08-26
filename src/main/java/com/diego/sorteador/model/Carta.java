@@ -8,10 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "Carta")
-public class Carta {
+@Component
+public class Carta implements ComponentDependency{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -81,6 +83,12 @@ public class Carta {
 	@Override
 	public String toString() {
 		return "Carta [id=" + id + ", description=" + description + ", isAlcohol=" + isAlcohol + "]";
+	}
+
+	@Override
+	public void saludar() {
+		// TODO Auto-generated method stub
+		System.out.println("hola soy la Carta!!");
 	}
 	
 	

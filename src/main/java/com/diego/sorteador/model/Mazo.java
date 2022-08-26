@@ -5,9 +5,11 @@ import java.util.List;
 
 import javax.persistence.OneToMany;
 
+import org.springframework.stereotype.Component;
 
 
-public class Mazo {
+@Component
+public class Mazo implements ComponentDependency{
 	
 	//@OneToMany
 	//private Carta carta;
@@ -39,7 +41,10 @@ public class Mazo {
 	}
 
 
-	
+	@Override
+	public void saludar() {
+		System.out.println(" soy el Mazo");
+	}
 	
 	
 	

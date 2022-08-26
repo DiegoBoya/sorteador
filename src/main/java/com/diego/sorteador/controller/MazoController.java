@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.diego.sorteador.model.Carta;
 import com.diego.sorteador.model.Mazo;
-import com.diego.sorteador.service.MazoService;
+import com.diego.sorteador.service.MazoServiceImpl;
 
 @RestController
 @RequestMapping("/mazo")
@@ -23,7 +23,7 @@ public class MazoController {
 	private static final Logger logger = LogManager.getLogger(MazoController.class);
 	
 	//wacala
-	MazoService mazoService = new MazoService(new Mazo());
+	MazoServiceImpl mazoService = new MazoServiceImpl(new Mazo());
 
 	@GetMapping("/sacarCarta/{name}")
 	public ResponseEntity<String> sacarCarta(@PathVariable String name) {
