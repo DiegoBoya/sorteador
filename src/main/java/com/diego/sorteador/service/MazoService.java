@@ -15,7 +15,7 @@ public class MazoService {
 	@Autowired
 	private Mazo mazo;
 	
-	@Autowired
+	//@Autowired
 	private CartaRepository cartaRepository;
 	
 

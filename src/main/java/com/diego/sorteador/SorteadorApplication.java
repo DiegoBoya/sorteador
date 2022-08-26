@@ -4,6 +4,7 @@ import org.hibernate.annotations.common.util.impl.Log;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.diego.sorteador.model.Carta;
 import com.diego.sorteador.model.Mazo;

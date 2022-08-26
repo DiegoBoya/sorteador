@@ -20,7 +20,7 @@ import com.diego.sorteador.repository.CartaRepository;
 @RequestMapping("/carta")
 public class CartaController {
 	
-	@Autowired
+	//@Autowired
 	CartaRepository cartaRepository;
 
 	@GetMapping("/getAll")
