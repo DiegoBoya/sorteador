@@ -24,7 +24,24 @@ public class MazoController {
 	private static final Logger logger = LogManager.getLogger(MazoController.class);
 
 	@Autowired
-	MazoService mazoService;
+	MazoService mazoServiceImpl;
+	
+	Carta c1 = new Carta("toma un shot c1", true);
+	Carta c2 = new Carta("toma un shot c2", true);
+	Carta c3 = new Carta("toma un shot c3", true);
+	Carta c4 = new Carta("hacer 5 sentadillas", false);
+	Carta c5 = new Carta(" hacer la vertical", false);
+	Carta c6 = new Carta("ofrecer faso a JL", false);
+	Carta c7 = new Carta("Izanagui en el metegol, si no lo entendes, te falta cultura Uchiha", false);
+	Carta c8 = new Carta("ruidos extraños en la habitacion", false);
+	Carta c9 = new Carta("Denu: tape el inodoro", false);
+	
+	
+	public MazoController(MazoService mazoServiceImpl) {
+		this.mazoServiceImpl = mazoServiceImpl;
+		mazoServiceImpl.agregarCartasAlMazo(c1, c2, c3, c4, c5, c6, c7, c8, c9);
+		System.out.println("se crea el bean de mazoController");
+	}
 	
 	@GetMapping("/sacarCarta/{name}")
 	public ResponseEntity<String> sacarCarta(@PathVariable String name) {
@@ -34,7 +51,7 @@ public class MazoController {
 		try {
 
 			logger.info("Se saca una carta del mazo para " + name);
-			String resp = mazoService.sacarCarta(name);
+			String resp = mazoServiceImpl.sacarCarta(name);
 			
 			if (resp.isEmpty()) {
 				response = new ResponseEntity<String>("error al obtener la carta", HttpStatus.NOT_FOUND);
@@ -57,7 +74,7 @@ public class MazoController {
 		try {
 
 			logger.info("Inicia el procedimiento apra agregar cartas al Mazo");
-			String resp = mazoService.agregarCartasAlMazo(cartasNuevas);
+			String resp = mazoServiceImpl.agregarCartasAlMazo(cartasNuevas);
 			
 			if (resp.toLowerCase().contains("error")) {
 				response = new ResponseEntity<String>(resp, HttpStatus.NOT_FOUND);

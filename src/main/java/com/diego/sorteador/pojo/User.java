@@ -1,25 +1,33 @@
 package com.diego.sorteador.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
+import org.springframework.data.annotation.Id;
+import org.springframework.stereotype.Component;
 
-@ConstructorBinding
-@ConfigurationProperties(prefix = "user")
+
 public class User {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="user_id")
+	private Integer id;
 	
-	private String email;
-	private Integer age;
+	private String name;
+
 	
-	public User(String email, Integer age) {
+	public User(String name) {
 		super();
-		this.email = email;
-		this.age = age;
+		this.name = name;
 	}
 
 	
 	@Override
 	public String toString() {
-		return "El usuario: " + this.email + ", tiene la edad de:" + this.age;
+		return "El usuario: " + this.name ;
 	}
 }

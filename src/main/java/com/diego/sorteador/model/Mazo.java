@@ -18,9 +18,9 @@ public class Mazo {
 	private List<Carta> listaCartasUsadas;
 	
 	public Mazo() {
-		System.out.println("se crea el Mazo");
 		listaCartasActivas = new ArrayList<Carta>();
 		listaCartasUsadas = new ArrayList<Carta>();
+		System.out.println("se crea bean de Mazo");
 	}
 	
 

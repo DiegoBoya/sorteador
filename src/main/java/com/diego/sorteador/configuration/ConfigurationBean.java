@@ -14,7 +14,7 @@ import com.diego.sorteador.service.MazoServiceImpl;
  * clase que tiene configuracion adicional de nuestros beans
  */
 @Configuration
-@EnableConfigurationProperties(User.class)
+//@EnableConfigurationProperties(User.class)
 public class ConfigurationBean {
 	
 }

@@ -22,7 +22,7 @@ public class MazoServiceImpl implements MazoService{
 	
 
 	public MazoServiceImpl(Mazo mazo) {
-		System.out.println("se crea mazoService");
+		System.out.println("se crea el bean de mazoService");
 		this.mazo = mazo;
 	}
 	
@@ -51,14 +51,16 @@ public class MazoServiceImpl implements MazoService{
 		//logger.info("inicia proceso para sacar una carta del mazo para el invitado " + name);
 		
 		Carta carta = null;
+		String response = "El invitade " + name;
 		
 		if (mazo.getListaCartasActivas().size() == 0 || mazo.getListaCartasActivas().isEmpty()) {
 			this.mezclartodasLasCartas();
 		}
 		
 		carta = getCarta();
-		
-		return carta.toString();
+		response = response + " para ingresar al cumple debe: " + carta.getDescription();
+		logger.info(response);
+		return response;
 	}
 	
 	
@@ -121,4 +123,7 @@ public class MazoServiceImpl implements MazoService{
 		logger.info("Mazo unificado con exito...");
 		
 	}
+
+	
+	
 }

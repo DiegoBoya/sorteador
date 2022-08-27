@@ -20,8 +20,8 @@ public class Carta implements ComponentDependency{
 	@Column(name="carta_id")
 	private Integer id;
 	
-	@Column(name = "name")
-	private String name;
+//	@Column(name = "name")
+//	private String name;
 	
 	@Column(name = "description")
 	private String description;
@@ -30,13 +30,12 @@ public class Carta implements ComponentDependency{
 	private boolean isAlcohol;
 	
 	public Carta() {
-		System.out.println("se crea la carta");
+		System.out.println("se crea el Bean de carta");
 	}
 	
 	//constructor por defecto con ALCOHOL == false
 	public Carta(String descripcion) {
 		this.description = descripcion;
-		this.name = "Sin nombre";
 		this.isAlcohol = false;
 	}
 	
@@ -44,25 +43,20 @@ public class Carta implements ComponentDependency{
 		this.description = descripcion;
 		this.isAlcohol = alc;
 	}
-	
-	public Carta(String name, String descripcion, boolean alc) {
-		this.name = name;
-		this.description = descripcion;
-		this.isAlcohol = alc;
-	}
+
 
 	public Integer getId() {
 		return id;
 	}
 
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
 
 	public String getDescription() {
 		return description;
@@ -88,8 +82,10 @@ public class Carta implements ComponentDependency{
 	@Override
 	public void saludar() {
 		// TODO Auto-generated method stub
-		System.out.println("hola soy la Carta!!");
+		
 	}
+
+	
 	
 	
 	

@@ -24,44 +24,74 @@ import com.diego.sorteador.service.MazoServiceImpl;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class SorteadorApplication implements CommandLineRunner{
 	
-	/*
-	@Autowired
-	@Qualifier("mazo") 
-	private ComponentDependency mazo;
-	
-	@Autowired
-	@Qualifier("carta")
-	private ComponentDependency carta;
-	 */
-	
 	private static final Logger logger = LogManager.getLogger(SorteadorApplication.class);
 	
-	@Autowired
-	private MazoService mazoServiceImpl;
-	
-	@Value("${server.port}")
-	private String puertoSalida;
-	
-	@Autowired
-	private User user;
-	
-	/*
-	 * // Inyeccion de dependencias a traves del constructor public
-	 * SorteadorApplication (ComponentDependency mazo, ComponentDependency carta) {
-	 * this.carta = carta; this.mazo = mazo; }
-	 */
-
 	public static void main(String[] args) {
 		SpringApplication.run(SorteadorApplication.class, args);
+		/*
+		Mazo mazo = new Mazo();
+		MazoService mazoServiceImpl = new MazoServiceImpl(mazo);
 		
+		//definicion de cartas
+		Carta c1 = new Carta("toma un shot c1", true);
+		Carta c2 = new Carta("toma un shot c2", true);
+		Carta c3 = new Carta("toma un shot c3", true);
+		Carta c4 = new Carta("hacer 5 sentadillas", false);
+		Carta c5 = new Carta(" hacer la vertical", false);
+		Carta c6 = new Carta("ofrecer faso a JL", false);
+		Carta c7 = new Carta("Izanagui en el metegol, si no lo entendes, te falta cultura Uchiha", false);
+		Carta c8 = new Carta("ruidos extraños en la habitacion", false);
+		Carta c9 = new Carta("Denu: tape el inodoro", false);
+
 		
+		logger.info("argando tanda de cartas al Mazo:");
+		mazoServiceImpl.agregarCartasAlMazo(c1, c2, c3, c4, c5, c6, c7, c8, c9);
+		
+		mazoServiceImpl.listarCartasActivas();
+		System.out.println("sacando cartas: :D");
+		mazoServiceImpl.sacarCarta("Diego");
+		mazoServiceImpl.listarCartasUsadas();
+		mazoServiceImpl.sacarCarta("Ninis");
+		mazoServiceImpl.listarCartasUsadas();
+		mazoServiceImpl.sacarCarta("gonza");
+		mazoServiceImpl.listarCartasUsadas();
+		mazoServiceImpl.sacarCarta("maty");
+		mazoServiceImpl.listarCartasUsadas();
+		mazoServiceImpl.sacarCarta("bel");
+		mazoServiceImpl.listarCartasUsadas();
+		mazoServiceImpl.sacarCarta("nacho");
+		mazoServiceImpl.listarCartasUsadas();
+		mazoServiceImpl.sacarCarta("pepe");
+		mazoServiceImpl.listarCartasUsadas();
+		mazoServiceImpl.sacarCarta("popo");
+		mazoServiceImpl.listarCartasUsadas();
+		mazoServiceImpl.sacarCarta("pablo");
+		mazoServiceImpl.listarCartasUsadas();
+		mazoServiceImpl.sacarCarta("pacita");
+		mazoServiceImpl.listarCartasUsadas();
+		System.out.println("mezclando cartas");
+		mazoServiceImpl.mezclartodasLasCartas();
+		//mazo.listarCartasActivas();
+		*/
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info(" la app sale por el puerto " + puertoSalida);
-		logger.info("applicacion levantada exitosamente");
-		logger.info("Usuario del properties: " + user.toString());
+		logger.info("applicacion levantada exitosamente, que comience la noche!");
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 
