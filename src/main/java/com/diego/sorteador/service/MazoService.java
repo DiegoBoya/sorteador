@@ -8,9 +8,9 @@ public interface MazoService {
 	public String sacarCarta(String name) ;
 	public Carta getCarta() ;
 	public int posicionRandom();
-	public void listarCartasActivas();
+	public String listarCartasActivas();
 	public void mezclartodasLasCartas() ;
-	public void listarCartasUsadas() ;
+	public String listarCartasUsadas() ;
 	
 	
 	

@@ -80,17 +80,7 @@ public class SorteadorApplication implements CommandLineRunner{
 		logger.info("applicacion levantada exitosamente, que comience la noche!");
 
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 	}
 	

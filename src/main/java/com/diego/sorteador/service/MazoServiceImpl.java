@@ -34,6 +34,7 @@ public class MazoServiceImpl implements MazoService{
 			logger.info("Se intena agregar " + cartasNuevas.length + "cartas nuevas");
 			for (Carta c : cartasNuevas) {
 				mazo.getListaCartasActivas().add(c);
+				i++;
 			}
 			resultado = "Se agregaron " + i + " cartas nuevas";
 		} catch (Exception e) {
@@ -95,26 +96,34 @@ public class MazoServiceImpl implements MazoService{
 
 	
 	@Override
-	public void listarCartasActivas() {
-			System.out.println("---------------------------------------------------------------------");
-			logger.info(" listando cartas activas:");
-			for (Carta c: mazo.getListaCartasActivas()) {
+	public String listarCartasActivas() {
+		StringBuilder sb = new StringBuilder();
+
+		System.out.println("---------------------------------------------------------------------");
+		logger.info(" listando cartas activas:");
+		for (Carta c : mazo.getListaCartasActivas()) {
+			sb.append(c.getDescription() + "\n");
 			System.out.println(c.toString());
 		}
-			System.out.println("---------------------------------------------------------------------");
+		System.out.println("---------------------------------------------------------------------");
+		return sb.toString();
 	}
 	
 	
 	@Override
-	public void listarCartasUsadas() {
+	public String listarCartasUsadas() {
+		StringBuilder sb = new StringBuilder();
+
 		System.out.println("---------------------------------------------------------------------");
 		logger.info(" listando cartas usadas:");
-		for (Carta c: mazo.getListaCartasUsadas()) {
-		System.out.println(c.toString());
-	}
+		for (Carta c : mazo.getListaCartasUsadas()) {
+			sb.append(c.getDescription() + "\n");
+			System.out.println(c.toString());
+		}
 		System.out.println("---------------------------------------------------------------------");
-}
-	
+		return sb.toString();
+	}
+
 	@Override
 	public void mezclartodasLasCartas() {
 		logger.info(" Ups! nos quedamos sin cartas!! vamos a mezclar!");
